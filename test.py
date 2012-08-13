@@ -1,6 +1,3 @@
-import sys; sys.path.append("..")
-import forkdjango
-
 from os import path as osp
 def rel_path(*p): return osp.normpath(osp.join(rel_path.path, *p))
 rel_path.path = osp.abspath(osp.dirname(__file__))
@@ -18,6 +15,8 @@ SETTINGS = dict(
 
 if __name__=='__main__':
     settings.configure(**SETTINGS)
+
+import forkdjango
 
 from django.conf.urls.defaults import patterns
 from django.http import HttpResponse
