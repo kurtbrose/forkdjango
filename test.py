@@ -27,9 +27,9 @@ def start_job(request):
         time.sleep(10 + 10*random.random())
         return "beep-boop-beep " + str(time.time())
 
-	status_key, result_key = forkdjango.start_job(job)
-	request.session.setdefault('keys', []).append( (status_key, result_key) )
-	return HttpResponse("started job "+result_key)
+    status_key, result_key = forkdjango.start_job(job)
+    request.session.setdefault('keys', []).append( (status_key, result_key) )
+    return HttpResponse("started job "+result_key)
 
 def check_jobs(request):
     from django.core.cache import cache
