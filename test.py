@@ -29,6 +29,7 @@ def start_job(request):
 
     status_key, result_key = forkdjango.start_job(job)
     request.session.setdefault('keys', []).append( (status_key, result_key) )
+    request.session.modified = True
     return HttpResponse("started job "+result_key)
 
 def check_jobs(request):
